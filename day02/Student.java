@@ -1,15 +1,21 @@
-public class Student {
-    String name;
-    int age;
-    public Student(String name, int age){
-        this.name=name;
-        this.age=age;
+public class Student extends Person {
+    private String studentId;
+
+    public Student(String name, int age, String studentId) {
+        super(name, age); // Gọi constructor lớp cha
+        this.studentId = studentId;
     }
-    public void display(){
-        System.out.println("Name: " + name +", Age: " + age);
+
+    public String getStudentId() {
+        return studentId;
     }
-    public static void main(String[] args) {
-        Student St1 = new Student("nam", 20);
-        St1.display();
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public void showInfo() {
+        introduce(); // dùng hàm từ lớp cha
+        System.out.println("Student ID: " + studentId);
     }
 }
